@@ -1,4 +1,3 @@
-
 const navbarEmail = document.querySelector(".navbar-email");
 const menuEmail = document.querySelector(".desktop-menu");
 
@@ -9,10 +8,17 @@ const infoShopingCar= document.querySelector(".product-detail");
 const shopingCar = document.querySelector(".imgShoppingCar");
 
 const divContainerProducts = document.querySelector(".cards-container");
+
+const closeRightProductDetail = document.querySelector(".product-detail-close");
+const asideProductDetail = document.querySelector(".product-detail-right");
+
+
 //events
 navbarEmail.addEventListener('click', showMenuEmail);
 burguerMenu.addEventListener("click", showMenuMobile);
 shopingCar.addEventListener("click", showShoppingCar);
+closeRightProductDetail.addEventListener("click", closeProductDetail);
+
 
 
 //fuctions 
@@ -24,6 +30,7 @@ function showMenuEmail(){
             infoShopingCar.classList.add("inactive");
         }
     }
+    asideProductDetail.classList.add("inactive");
 }
 
 function showMenuMobile(){
@@ -33,16 +40,16 @@ function showMenuMobile(){
             infoShopingCar.classList.add("inactive");   
         }  
     }
-
+    asideProductDetail.classList.add("inactive");
 }
 
 function showShoppingCar(){ 
     infoShopingCar.classList.toggle("inactive");
     menuEmail.classList.add("inactive");
     infoBurguerMenu.classList.add("inactive");
+    asideProductDetail.classList.add("inactive");
 
 } 
-
 
 const productList=[];
 
@@ -69,6 +76,7 @@ function listadoDeProoductos(listaProductos){
         div1.classList.add("product-card");
         const imagenes = document.createElement("img");
         imagenes.setAttribute("src", producto.imagen);
+        imagenes.classList.add("image-product-info")
         
         const div2 = document.createElement("div");
         div2.classList.add("product-info");
@@ -102,6 +110,19 @@ function listadoDeProoductos(listaProductos){
     }
 }
 
+function closeProductDetail(){
+    asideProductDetail.classList.add("inactive");
+}
+
+function showProductDetail(){
+    console.log("funciona");
+}
+
+
+
+
 listadoDeProoductos(productList);
+
+
 
 
